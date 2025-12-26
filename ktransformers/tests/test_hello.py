@@ -9,8 +9,9 @@ Copyright (c) 2024 by KVCache.AI, All Rights Reserved.
 import sys
 import os
 
-# Add parent directory to path for imports
-sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__)))))
+# Add ktransformers parent directory to path for imports
+ktransformers_root = os.path.abspath(os.path.join(os.path.dirname(__file__), '../..'))
+sys.path.insert(0, ktransformers_root)
 
 from ktransformers.util.hello import hello, get_version, print_welcome
 

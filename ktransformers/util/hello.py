@@ -50,10 +50,13 @@ def print_welcome():
     Print a welcome message for KTransformers.
     """
     version = get_version()
+    # Center the version text with padding to maintain banner alignment
+    version_text = f"KTransformers v{version}"
+    version_line = f"║{version_text.center(60)}║"
     
     welcome_message = f"""
 ╔════════════════════════════════════════════════════════════╗
-║                     KTransformers v{version}                    ║
+{version_line}
 ║  A Flexible Framework for Cutting-edge LLM Inference      ║
 ║                                                            ║
 ║  你好 (Hello)! Welcome to KTransformers!                    ║
