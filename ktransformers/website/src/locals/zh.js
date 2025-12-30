@@ -1,5 +1,15 @@
 // zh.js
 export default {
+    login: {
+        signIn: '登录',
+        register: '注册',
+        username: '用户名',
+        email: '邮箱 (可选)',
+        password: '密码',
+        haveAccount: '已有账号？登录',
+        noAccount: '没有账号？注册',
+        logout: '退出登录',
+    },
     home: {
         explore: '探索',
         language: '选择语言',
