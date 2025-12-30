@@ -1,5 +1,15 @@
 // en.js
 export default {
+    login: {
+        signIn: 'Sign In',
+        register: 'Register',
+        username: 'Username',
+        email: 'Email (Optional)',
+        password: 'Password',
+        haveAccount: 'Already have an account? Sign in',
+        noAccount: 'Don\'t have an account? Register',
+        logout: 'Logout',
+    },
     home: {
         explore: 'Explore',
         language: 'Choose Language',
