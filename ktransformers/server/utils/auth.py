@@ -5,10 +5,22 @@ from jose import JWTError, jwt
 from passlib.context import CryptContext
 from fastapi import Depends, HTTPException, status
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
+import warnings
 
 # Secret key for JWT - IMPORTANT: Set JWT_SECRET_KEY environment variable in production
 # This default key should NEVER be used in production environments
-SECRET_KEY = os.getenv("JWT_SECRET_KEY", "your-secret-key-here-change-in-production")
+_DEFAULT_KEY = "your-secret-key-here-change-in-production"
+SECRET_KEY = os.getenv("JWT_SECRET_KEY", _DEFAULT_KEY)
+
+# Warn if using default secret key
+if SECRET_KEY == _DEFAULT_KEY:
+    warnings.warn(
+        "Using default JWT secret key! This is insecure. "
+        "Please set JWT_SECRET_KEY environment variable in production.",
+        RuntimeWarning,
+        stacklevel=2
+    )
+
 ALGORITHM = "HS256"
 ACCESS_TOKEN_EXPIRE_MINUTES = 30
 

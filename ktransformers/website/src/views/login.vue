@@ -75,6 +75,9 @@ export default defineComponent({
         { required: true, message: 'Please input username', trigger: 'blur' },
         { min: 3, max: 20, message: 'Length should be 3 to 20', trigger: 'blur' },
       ],
+      email: [
+        { type: 'email', message: 'Please input valid email', trigger: 'blur' },
+      ],
       password: [
         { required: true, message: 'Please input password', trigger: 'blur' },
         { min: 6, message: 'Password should be at least 6 characters', trigger: 'blur' },
