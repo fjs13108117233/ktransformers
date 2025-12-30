@@ -184,12 +184,14 @@ import { ElMessage, ElMessageBox } from "element-plus";
 import { listAssistants } from "@/api/assistant";
 import { listMessages } from "@/api/message";
 import { useRouter } from "vue-router";
+import { useStore } from "vuex";
 import BScroll from "better-scroll";
 import { useI18n } from "vue-i18n";
 
 export default defineComponent({
   name: "HomeView",
   setup() {
+    const store = useStore();
     const assistantList = ref<IAssistant[]>([]);
     const threadsList = ref<IThread[]>([]);
     const firstMessages = ref<string[]>([]);
@@ -301,6 +303,7 @@ export default defineComponent({
     });
 
     const handleLogout = () => {
+      store.dispatch('logout');
       router.push('/login');
     };
 
@@ -698,7 +701,7 @@ export default defineComponent({
       background: white;
       font-size: 30px;
       border: none;
-      ovferflow: hidden;
+      overflow: hidden;
       border-radius: 15%;
       display: flex;
       flex-direction: column;

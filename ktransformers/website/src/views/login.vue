@@ -110,14 +110,17 @@ export default defineComponent({
               password: form.value.password,
             });
             
-            // Get user info
-            const user = await getCurrentUser(authResponse.access_token);
-            
-            // Store auth data
+            // Store token first so the interceptor can use it
             store.dispatch('login', {
               token: authResponse.access_token,
-              user: user,
+              user: null,
             });
+            
+            // Get user info (will use the token from store via interceptor)
+            const user = await getCurrentUser();
+            
+            // Update user info in store
+            store.dispatch('setUser', user);
             
             ElMessage.success('Login successful!');
             router.push('/');

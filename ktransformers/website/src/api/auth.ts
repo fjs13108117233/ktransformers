@@ -34,11 +34,7 @@ export const register = async (userData: UserRegistration): Promise<User> => {
   return response.data;
 };
 
-export const getCurrentUser = async (token: string): Promise<User> => {
-  const response = await apiClient.get('/auth/me', {
-    headers: {
-      Authorization: `Bearer ${token}`,
-    },
-  });
+export const getCurrentUser = async (): Promise<User> => {
+  const response = await apiClient.get('/auth/me');
   return response.data;
 };
